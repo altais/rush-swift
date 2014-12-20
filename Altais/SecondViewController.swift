@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 var activePlace = 0
 
-
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,6 +37,16 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         activePlace = indexPath.row
         self.performSegueWithIdentifier("goto_map", sender: indexPath)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        println(indexPath.row)
+        if (editingStyle == UITableViewCellEditingStyle.Delete)
+        {
+            places.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+        }
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

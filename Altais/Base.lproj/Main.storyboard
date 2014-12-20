@@ -34,9 +34,6 @@
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yoE-Ec-ktx">
                                 <rect key="frame" x="0.0" y="20" width="375" height="554"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="lEB-3T-1Yn"/>
-                                </connections>
                             </mapView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ANt-bk-iJe">
                                 <rect key="frame" x="46" y="581" width="94" height="29"/>
@@ -94,6 +91,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="M8F-jw-YtC"/>
                     <connections>
+                        <outlet property="tableView" destination="lud-4l-A7C" id="0I9-E0-z9M"/>
                         <segue destination="ZrF-7B-eEL" kind="show" identifier="goto_map" id="tAP-jf-NHT"/>
                     </connections>
                 </viewController>
