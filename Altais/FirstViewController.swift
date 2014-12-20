@@ -13,10 +13,11 @@ import CoreLocation
 var places = [Dictionary<String,String>()]
 
 class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    
+
     @IBOutlet weak var choiceType: UISegmentedControl!
     var manager = CLLocationManager()
-
+    var school = MKPointAnnotation()
+    
     @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         map.mapType = MKMapType.Satellite
         choiceType.selectedSegmentIndex = 1
-        var school = MKPointAnnotation()
         school.coordinate = CLLocationCoordinate2DMake(48.896853, 2.318381)
         school.title = "Ecole 42"
         school.subtitle = "Cybercafé, Hôtel et Cinéma"
@@ -52,11 +52,11 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func zoom(sender: UIStepper) {
+        map.setRegion(MKCoordinateRegionMake(school.coordinate, MKCoordinateSpanMake(sender.value,sender.value)), animated: true)
+        println(sender.value)
     }
-    
+
     @IBAction func indexChanged(sender: AnyObject) {
         if (choiceType.selectedSegmentIndex == 0) {
             map.mapType = MKMapType.Standard
