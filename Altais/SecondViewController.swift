@@ -9,18 +9,13 @@
 import UIKit
 
 var activePlace = 0
-var places = [Dictionary<String,String>()]
+
 
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if places.count == 1 {
-            places.removeAtIndex(0)
-        }
-        if places.count == 0 {
-            places.append(["name":"Taj Mahal","lat":"27.175277","lon":"78.042128"])
-        }
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,7 +29,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
-        println(segue.identifier)
         if segue.identifier == "addPlace" {
             activePlace = -1
         }

@@ -13,12 +13,14 @@ import CoreLocation
 class PlacesViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var manager = CLLocationManager()
-    
+    @IBOutlet weak var mapType: UISegmentedControl!
     @IBOutlet weak var map: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
         map.mapType = MKMapType.Satellite
+        mapType.selectedSegmentIndex = 1
         var place = MKPointAnnotation()
         place.coordinate = CLLocationCoordinate2DMake(NSString(string: places[activePlace]["lat"]!).doubleValue, NSString(string: places[activePlace]["lon"]!).doubleValue)
         place.title = places[activePlace]["name"]
@@ -31,9 +33,16 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         manager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func indexChanged(sender: AnyObject) {
+        if (sender.selectedSegmentIndex == 0) {
+            map.mapType = MKMapType.Standard
+        }
+        else if (sender.selectedSegmentIndex == 1) {
+            map.mapType = MKMapType.Satellite
+        }
+        else {
+            map.mapType = MKMapType.Hybrid
+        }
     }
     
     @IBAction func zoomOnUser(sender: AnyObject) {
@@ -41,5 +50,6 @@ class PlacesViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         manager.startUpdatingLocation()
         map.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: true)
     }
+
 }
 

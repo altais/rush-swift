@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+var places = [Dictionary<String,String>()]
+
 class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var choiceType: UISegmentedControl!
@@ -18,6 +20,15 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if places.count == 1 {
+            places.removeAtIndex(0)
+        }
+        if places.count == 0 {
+            places.append(["name":"Taj Mahal","lat":"27.175277","lon":"78.042128"])
+            places.append(["name":"Tour Eiffel","lat":"48.858561","lon":"2.294508"])
+        }
+        
         map.mapType = MKMapType.Satellite
         choiceType.selectedSegmentIndex = 1
         var school = MKPointAnnotation()
@@ -31,6 +42,14 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        for var index = 0; index < places.count; ++index {
+            var place = MKPointAnnotation()
+            place.coordinate = CLLocationCoordinate2DMake(NSString(string: places[index]["lat"]!).doubleValue, NSString(string: places[index]["lon"]!).doubleValue)
+            place.title = places[index]["name"]
+            map.addAnnotation(place)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
