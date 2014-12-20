@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var activePlace = 0
-    var places = [Dictionary<String,String>()]
+var activePlace = 0
+var places = [Dictionary<String,String>()]
+
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if places.count == 0 {
             places.append(["name":"Taj Mahal","lat":"27.175277","lon":"78.042128"])
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +34,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)  {
+        println(segue.identifier)
         if segue.identifier == "addPlace" {
             activePlace = -1
         }
@@ -46,11 +42,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         activePlace = indexPath.row
-        self.navigationController?.title = "test"
-        //let vc = TwoViewController(nibName: "TwoViewController", bundle: nil)
-        //self.navigationController?.pushViewController(vc, animated: true) //accessing the source's navigation controller to push the destination onto the stack.
-        //self.parentViewController?.performSegueWithIdentifier("map", sender: indexPath)
-        //self.performSegueWithIdentifier("9pv-A4-QxB", sender: indexPath)
+        self.performSegueWithIdentifier("goto_map", sender: indexPath)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

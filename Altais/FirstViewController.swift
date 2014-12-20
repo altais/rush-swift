@@ -18,7 +18,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         map.mapType = MKMapType.Satellite
         choiceType.selectedSegmentIndex = 1
         var school = MKPointAnnotation()
@@ -32,8 +31,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,8 +54,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         map.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: true)
-    }
-
-    
+    }   
 }
 
