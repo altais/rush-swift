@@ -11,7 +11,7 @@ import MapKit
 
 var activePlace = 0
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -44,8 +44,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (editingStyle == UITableViewCellEditingStyle.Delete)
         {
             places.removeAtIndex(indexPath.row)
-            tableView.reloadData()
+            
         }
+        tableView.reloadData()
         
     }
     

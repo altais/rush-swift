@@ -18,6 +18,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var manager = CLLocationManager()
     var school = MKPointAnnotation()
     
+    @IBOutlet weak var searchBar: AutoEmailTextField!
     @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         map.addGestureRecognizer(uilpgr)
 
     }
+
     override func viewDidAppear(animated: Bool) {
         map.removeAnnotations(map.annotations)
         school.coordinate = CLLocationCoordinate2DMake(48.896853, 2.318381)
@@ -128,6 +130,16 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         map.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: true)
-    }   
+    }
+    
+    @IBAction func search(sender: AnyObject) {
+        CLGeocoder().geocodeAddressString(searchBar.text, completionHandler:{(placemarks, error) in
+            println(placemarks)
+            if let placemark = placemarks?[0] as? CLPlacemark {
+                self.map.addAnnotation(MKPlacemark(placemark: placemark))
+                //self.map.setRegion(MKCoordinateRegionMake(placemark, MKCoordinateSpanMake(0.005,0.005)), animated: true)
+            }
+        })
+    }
 }
 

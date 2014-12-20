@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		433774011A45E72C0057A266 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433774001A45E72C0057A266 /* PlacesViewController.swift */; };
+		433774051A461F880057A266 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433774041A461F880057A266 /* SearchViewController.swift */; };
+		433774071A4620080057A266 /* AutoCompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433774061A4620080057A266 /* AutoCompleteTextField.swift */; };
+		433774091A46205F0057A266 /* SwiftyJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433774081A46205F0057A266 /* SwiftyJson.swift */; };
 		4363FEB61A44B9B500338404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363FEB51A44B9B500338404 /* AppDelegate.swift */; };
 		4363FEB81A44B9B500338404 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363FEB71A44B9B500338404 /* FirstViewController.swift */; };
 		4363FEBA1A44B9B500338404 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363FEB91A44B9B500338404 /* SecondViewController.swift */; };
@@ -31,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		433774001A45E72C0057A266 /* PlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		433774041A461F880057A266 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		433774061A4620080057A266 /* AutoCompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteTextField.swift; sourceTree = "<group>"; };
+		433774081A46205F0057A266 /* SwiftyJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJson.swift; sourceTree = "<group>"; };
 		4363FEB01A44B9B500338404 /* Altais.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Altais.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4363FEB41A44B9B500338404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4363FEB51A44B9B500338404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,10 +99,13 @@
 				4363FEB71A44B9B500338404 /* FirstViewController.swift */,
 				4363FEB91A44B9B500338404 /* SecondViewController.swift */,
 				433774001A45E72C0057A266 /* PlacesViewController.swift */,
+				433774061A4620080057A266 /* AutoCompleteTextField.swift */,
+				433774041A461F880057A266 /* SearchViewController.swift */,
 				4363FEBB1A44B9B500338404 /* Main.storyboard */,
 				4363FEBE1A44B9B500338404 /* Images.xcassets */,
 				4363FEC01A44B9B500338404 /* LaunchScreen.xib */,
 				4363FEB31A44B9B500338404 /* Supporting Files */,
+				433774081A46205F0057A266 /* SwiftyJson.swift */,
 			);
 			path = Altais;
 			sourceTree = "<group>";
@@ -226,10 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				433774051A461F880057A266 /* SearchViewController.swift in Sources */,
 				433774011A45E72C0057A266 /* PlacesViewController.swift in Sources */,
 				4363FEBA1A44B9B500338404 /* SecondViewController.swift in Sources */,
+				433774071A4620080057A266 /* AutoCompleteTextField.swift in Sources */,
 				4363FEB61A44B9B500338404 /* AppDelegate.swift in Sources */,
 				4363FEB81A44B9B500338404 /* FirstViewController.swift in Sources */,
+				433774091A46205F0057A266 /* SwiftyJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
