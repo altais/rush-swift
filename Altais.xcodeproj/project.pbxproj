@@ -14,6 +14,8 @@
 		4363FEBF1A44B9B500338404 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4363FEBE1A44B9B500338404 /* Images.xcassets */; };
 		4363FEC21A44B9B500338404 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4363FEC01A44B9B500338404 /* LaunchScreen.xib */; };
 		4363FECE1A44B9B500338404 /* AltaisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4363FECD1A44B9B500338404 /* AltaisTests.swift */; };
+		4363FED81A44C1AD00338404 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4363FED71A44C1AD00338404 /* MapKit.framework */; };
+		4363FEDA1A44D2E600338404 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4363FED91A44D2E600338404 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		4363FEC71A44B9B500338404 /* AltaisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltaisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4363FECC1A44B9B500338404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4363FECD1A44B9B500338404 /* AltaisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltaisTests.swift; sourceTree = "<group>"; };
+		4363FED71A44C1AD00338404 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4363FED91A44D2E600338404 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4363FEDA1A44D2E600338404 /* CoreLocation.framework in Frameworks */,
+				4363FED81A44C1AD00338404 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +67,8 @@
 		4363FEA71A44B9B500338404 = {
 			isa = PBXGroup;
 			children = (
+				4363FED91A44D2E600338404 /* CoreLocation.framework */,
+				4363FED71A44C1AD00338404 /* MapKit.framework */,
 				4363FEB21A44B9B500338404 /* Altais */,
 				4363FECA1A44B9B500338404 /* AltaisTests */,
 				4363FEB11A44B9B500338404 /* Products */,

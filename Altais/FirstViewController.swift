@@ -7,19 +7,58 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var choiceType: UISegmentedControl!
+    var manager = CLLocationManager()
 
+    @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        map.mapType = MKMapType.Satellite
+        choiceType.selectedSegmentIndex = 1
+        var school = MKPointAnnotation()
+        school.coordinate = CLLocationCoordinate2DMake(48.896853, 2.318381)
+        school.title = "Ecole 42"
+        school.subtitle = "Cybercafé, Hôtel et Cinéma"
+        map.addAnnotation(school)
+        map.centerCoordinate = school.coordinate
+        map.setRegion(MKCoordinateRegionMake(school.coordinate, MKCoordinateSpanMake(0.005,0.005)), animated: true)
+        
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        
 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func indexChanged(sender: AnyObject) {
+        if (choiceType.selectedSegmentIndex == 0) {
+            map.mapType = MKMapType.Standard
+        }
+        else if (choiceType.selectedSegmentIndex == 1) {
+            map.mapType = MKMapType.Satellite
+        }
+        else {
+            map.mapType = MKMapType.Hybrid
+        }
+    }
+    
+    @IBAction func zoomOnUser(sender: AnyObject) {
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        map.setUserTrackingMode(MKUserTrackingMode.FollowWithHeading, animated: true)
+    }
 
-
+    
 }
 
